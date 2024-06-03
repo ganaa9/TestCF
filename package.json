@@ -24,7 +24,11 @@
     "ui5-task-zipper": "^3.1.3"
   },
   "scripts": {
-    "start": "fiori run --open \"test/flpSandbox.html?sap-ui-xx-viewCache=false#project1-display\"",
+    "start": "ui5 serve",
+    "lint":"eslint webapp",
+    "test":"npm run lint && npm run karma-ci",
+    "karma":"karma start",
+    "karma-ci":"karma start karma-ci.conf.js",
     "start-local": "fiori run --config ./ui5-local.yaml --open \"test/flpSandbox.html?sap-ui-xx-viewCache=false#project1-display\"",
     "build": "ui5 build --config=ui5.yaml --clean-dest --dest dist",
     "deploy": "fiori cfDeploy",
