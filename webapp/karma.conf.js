@@ -1,9 +1,9 @@
 module.exports = function(config) {
   config.set({
-    frameworks: ["ui5", "qunit", "sinon"],
+    frameworks: ["qunit", "ui5", "sinon"],
     ui5: {
       url: "https://openui5.hana.ondemand.com",
-      mode: "script",
+      mode: "html",
       config: {
         async: true,
         resourceRoots: {
