@@ -1,14 +1,7 @@
 <mvc:View controllerName="project1.controller.View1" xmlns:mvc="sap.ui.core.mvc" displayBlock="true" xmlns="sap.m">
     <Page id="page1" title="{i18n>title}">
         <content>
-            <f:SimpleForm id="_IDGenSimpleForm1" layout="ResponsiveGridLayout" editable="true" labelSpanL="2" labelSpanM="1" labelSpanS="1" emptySpanL="2" emptySpanM="1" columnsL="1" columnsM="1">
-                <Label id="_IDGenLabel1" text="Anlagennummer" labelFor="anln1" textAlign="Left"/>
-                <Input id="anln1" valueLiveUpdate="true" required="true" type="Number" valueStateText="Ungültige Eingabe" showValueHelp="true" valueHelpRequest=".onValueHelpRequestedA" valueHelpOnly="true" width="100%"/>
-                
-                <Label id="_IDGenLabel2" text="Unternummer" labelFor="anln2" textAlign="Left"/>
-                <Input id="anln2" valueLiveUpdate="true" type="Number" editable="false" width="100%"/>
-              
-            </f:SimpleForm>
+      
         </content>
     </Page>
 </mvc:View>
