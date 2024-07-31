@@ -1,23 +1,37 @@
-name: Build
+name: Build and Deploy
 on:
- push:
-   branches:
-     - master
- pull_request:
-   types: [opened, synchronize, reopened]
+  push:
+    branches:
+      - main
 jobs:
-  sonarcloud:
-    name: SonarCloud
+  build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
         with:
-          fetch-depth: 0 
+          node-version: '14'
+
       - name: Install dependencies
-        run: yarn
-      - name: Test and coverage
-        run: yarn jest --coverage
-      - name: SonarCloud Scan
-        uses: SonarSource/sonarcloud-github-action@master
-        env:
-          SONAR_TOKEN: ${{ secrets.sonartoken}}
+        run: |
+          npm install --global @ui5/cli
+          npm install
+
+      - name: Build UI5 project
+        run: |
+          ui5 build --clean-dest --include-task="generateManifestBundle"
+
+      - name: Deploy to SAP BTP Cloud Foundry
+        uses: sap-actions/mta-deploy@v1
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          password: ${{ secrets.PASSWORD }}
+          mtaPath: 'mta_archives/*.mtar'
+          org: ${{ secrets.CF_ORG }}
+          space: ${{ secrets.CF_SPACE }}
+          apiEndpoint: ${{ secrets.CF_API_ENDPOINT }}
+          mtaOperation: 'deploy'

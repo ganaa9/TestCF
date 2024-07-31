@@ -22,3 +22,23 @@ require.config({
   // we have to kickoff jasmine, as it is asynchronous
   callback: window.__karma__.start
 })
+const scanner = require('sonarqube-scanner').default;
+
+scanner(
+  {
+    serverUrl: 'https://sonarqube.mycompany.com',
+    token: '019d1e2e04eefdcd0caee1468f39a45e69d33d3f',
+    options: {
+      'sonar.projectName': 'My App',
+      'sonar.projectDescription': 'Description for "My App" project...',
+      'sonar.sources': 'src',
+      'sonar.tests': 'test',
+    },
+  },
+  error => {
+    if (error) {
+      console.error(error);
+    }
+    process.exit();
+  },
+);
