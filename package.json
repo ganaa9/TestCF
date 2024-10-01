@@ -513,7 +513,7 @@
     "select-hose": "^2.0.0",
     "semver": "^7.5.3",
     "semver-diff": "^3.1.1",
-    "send": "^0.18.0",
+    "send": "^0.19.0",
     "serve-static": "^1.15.0",
     "set-blocking": "^2.0.0",
     "set-function-length": "^1.2.2",
