@@ -62,5 +62,7 @@
     "acorn-jsx": "^5.3.2",
     "adm-zip": "^0.5.10",
     "agent-base": "^7.1.1"
-  }
+  },
+  "author": "",
+  "license": "ISC"
 }
