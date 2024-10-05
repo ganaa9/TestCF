@@ -1,7 +1,35 @@
-<mvc:View controllerName="project1.controller.View1" xmlns:mvc="sap.ui.core.mvc" displayBlock="true" xmlns="sap.m">
-    <Page id="page1" title="{i18n>title}">
+<mvc:View 
+    controllerName="project1.controller.View1" 
+    xmlns:mvc="sap.ui.core.mvc" 
+    xmlns="sap.m" 
+    displayBlock="true">
+    
+    <Page id="page1" title="{i18n>List Report}">
         <content>
-      hi
+            <Table
+                id="listReportTable"
+                items="{
+                    path: '/YourEntitySet'
+                }">
+                <columns>
+                    <Column id="_IDGenColumn">
+                        <Text id="_IDGenText3" text="Column 1"/>
+                    </Column>
+                    <Column id="_IDGenColumn1">
+                        <Text id="_IDGenText" text="Column 2"/>
+                    </Column>
+                    <!-- Ajoutez d'autres colonnes ici -->
+                </columns>
+                <items>
+                    <ColumnListItem id="_IDGenColumnListItem">
+                        <cells>
+                            <Text id="_IDGenText1" text="{Column1Property}"/>
+                            <Text id="_IDGenText2" text="{Column2Property}"/>
+                            <!-- Ajoutez d'autres propriétés ici -->
+                        </cells>
+                    </ColumnListItem>
+                </items>
+            </Table>
         </content>
     </Page>
 </mvc:View>

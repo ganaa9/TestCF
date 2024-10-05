@@ -1,7 +1,18 @@
-<mvc:View controllerName="project1.controller.App"
+<mvc:View 
+    controllerName="project1.controller.App"
     xmlns:html="http://www.w3.org/1999/xhtml"
-    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns:mvc="sap.ui.core.mvc" 
+    displayBlock="true"
     xmlns="sap.m">
+
     <App id="app">
+        <pages>
+            <Page id="mainPage" title="{i18n>appTitle}">
+                <content>
+                    <Text id="_IDGenText4" text="{i18n>welcomeMessage}" />
+                    <!-- Add more content elements here -->
+                </content>
+            </Page>
+        </pages>
     </App>
 </mvc:View>
